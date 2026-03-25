@@ -12,6 +12,20 @@
   </tr>
 </table>
 
+<p align="center">
+  <img src="https://github.com/ramdac17.png" width="180" style="border-radius: 50%; border: 3px solid #d4ff00; box-shadow: 0 0 15px #d4ff00;">
+</p>
+
+<h1 align="center">⚡ SOFTWARE ENGINEER | FULL-STACK | RPA</h1>
+<p align="center">
+  <b>[ PROJECT_VISTA ] : ePRX UV1 ECOSYSTEM</b><br>
+  <code>SYSTEM_OPERATOR: ramdac17</code> // <code>LOCATION: PH_MNL_QC</code>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-OPERATIONAL-d4ff00?style=for-the-badge&logo=target" />
+</p>
+
 
 # SOFTWARE ENGINEER || FULL STACK DEVELOPER || RPA DEVELOPER  
 
