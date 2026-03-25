@@ -295,28 +295,59 @@
     </div>
   </section>
 
-  <section id="projects">
+ <section id="projects">
     <span class="section-num">|| 02</span>
     <h2 class="section-title">PROJECTS</h2>
+    
     <div class="projects-grid">
-      <div class="project-card">
-        <span class="proj-type">PRX ECOSYSTEM</span>
-        <h3 class="proj-title">PRX - ePRX PINOY RUNNER EXTREME</h3>
-        <p class="proj-desc">A Synchronized Full-Stack Ecosystem engineered for active individuals pursuing high-performance lifestyles and adventure.</p>
-        
-        <div class="skills-column">
-          <h3 class="proj-desc">TECHNICAL ARCHITECTURE</h3>
-        <ul class="skills-list">
-          <li>Core Engine: Developed with a unified Next.js 15 frontend and a robust NestJS / Node.js backend to ensure low-latency data processing and SSR optimization.</li>
-          <li>Mobile Uplink: Cross-platform field operations powered by React Native, providing real-time activity tracking for users on the move.</li>
-          <li>Data Archival: High-integrity persistence layer utilizing PostgreSQL and Prisma ORM, hosted on Railway for mission-critical reliability.</li>
-          <li>React Native for Mobile application development</li>
-          <li>Tactical Interface: Designed with a Cyber-Minimalist aesthetic, featuring high-contrast "Signature Lime" visual telemetry and fluid motion states.</li>
-        </ul>
+      <div class="project-card" style="grid-column: 1 / -1;"> <span class="proj-type">PRX FULL-STACK ECOSYSTEM</span>
+        <h3 class="proj-title">ePRX PINOY RUNNER EXTREME</h3>
+        <p class="proj-desc" style="max-width: 800px; border-left: 2px solid var(--accent); padding-left: 15px; margin-bottom: 30px;">
+          A Synchronized Full-Stack Ecosystem engineered for active individuals pursuing high-performance lifestyles and adventure. Unifying web, mobile, and server-side operations.
+        </p>
+
+        <div class="b-s-grid" style="gap: 30px;">
+          <div class="tech-spec">
+            <h3 class="subsection-title" style="font-size: 1.2rem; color: var(--accent);">[ TECHNICAL ARCHITECTURE ]</h3>
+            <ul class="skills-list" style="grid-template-columns: 1fr; border: none; background: transparent;">
+              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
+                <strong>CORE ENGINE:</strong> Unified Next.js 15 & NestJS/Node.js for low-latency SSR optimization.
+              </li>
+              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
+                <strong>MOBILE UPLINK:</strong> React Native field operations for real-time telemetry.
+              </li>
+              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
+                <strong>DATA PERSISTENCE:</strong> PostgreSQL & Prisma ORM deployed via Railway infrastructure.
+              </li>
+              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
+                <strong>INTERFACE:</strong> Cyber-Minimalist theme with high-contrast visual telemetry.
+              </li>
+            </ul>
+          </div>
+
+          <div class="ops-spec">
+            <h3 class="subsection-title" style="font-size: 1.2rem; color: var(--accent);">[ OPERATIONAL PROTOCOL ]</h3>
+            <ul class="skills-list" style="grid-template-columns: 1fr; border: none; background: transparent;">
+              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
+                <strong>SECURITY:</strong> Hardened GDPR compliance & JWT-based session management.
+              </li>
+              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
+                <strong>COMMS:</strong> Automated Brevo/Formspree integration for secure data ingestion.
+              </li>
+              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
+                <strong>SOCIAL:</strong> Integrated social media sharing for articles and milestones.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--grey);">
+          <a href="https://e-prx-uv-4-website.vercel.app/dashboard" target="_blank" class="proj-link" style="font-size: 1rem; letter-spacing: 2px;">
+            > LIVE UPLINK
+          </a>
+        </div>
       </div>
-        <a href="https://e-prx-uv-4-website.vercel.app/dashboard" class="proj-link">LIVE UPLINK</a>
-      </div>
-      </div>
+    </div>
   </section>
 
 </body>
