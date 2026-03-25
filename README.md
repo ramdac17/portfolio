@@ -1,17 +1,3 @@
-<table>
-  <tr>
-    <td width="20%">
-      <img src="https://github.com/ramdac17.png" width="150" style="border-radius: 50%; border: 2px solid #d4ff00;" alt="Profile Image">
-    </td>
-    <td width="80%">
-      <h1>⚡ SOFTWARE ENGINEER | FULL-STACK | RPA</h1>
-      <h3><b>[ PROJECT_VISTA ] : ePRX UV1 ECOSYSTEM</b></h3>
-      <p><i>MISSION: UNIFYING ELITE PERFORMANCE WITH DATA-DRIVEN ARCHITECTURE.</i></p>
-      <p>STATUS: <code>PRODUCTION_READY</code> // VER: <code>UV1.0.4</code></p>
-    </td>
-  </tr>
-</table>
-
 <p align="center">
   <img src="https://github.com/ramdac17.png" width="180" style="border-radius: 50%; border: 3px solid #d4ff00; box-shadow: 0 0 15px #d4ff00;">
 </p>
