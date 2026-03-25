@@ -29,7 +29,7 @@
       scroll-behavior: smooth;
     }
 
-    /* --- NAVIGATION PROTOTYPE --- */
+    /* --- NAVIGATION --- */
     .navbar {
       position: fixed;
       top: 0;
@@ -81,46 +81,72 @@
       text-shadow: 0 0 10px var(--accent);
     }
 
-    /* --- HERO/HOME SECTION --- */
+    /* --- TWO-COLUMN HERO SECTION --- */
     .hero {
       height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      flex-direction: row; /* Two columns side-by-side */
+      align-items: center;
+      justify-content: space-between;
       padding: 0 8%;
       max-width: 1200px;
       margin: 0 auto;
       border-bottom: 1px solid var(--grey);
+      gap: 40px;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
     }
 
     .hero-protocol {
       font-family: monospace;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: var(--accent);
-      letter-spacing: 3px;
-      margin-bottom: 25px;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 10px;
+      text-transform: uppercase;
     }
 
     .hero-title {
       font-family: var(--font-bebas);
-      font-size: 10vw; /* Responsive font size */
-      line-height: 0.9;
+      font-size: 7vw; 
+      line-height: 0.85;
       margin: 0;
-      letter-spacing: 4px;
+      letter-spacing: 2px;
     }
 
     .hero-title span { color: var(--accent); }
 
-    .hero-subtitle {
-      color: var(--mid-grey);
-      font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 400px;
-      margin-top: 20px;
-      letter-spacing: 0.5px;
+    /* Profile Image Container */
+    .hero-image-container {
+      flex: 0 0 400px;
+      display: flex;
+      justify-content: flex-end;
     }
 
-    /* --- SECTIONS (BACKGROUND & SKILLS, PROJECTS) --- */
+    .hero-image {
+      width: 350px;
+      height: 450px;
+      object-fit: cover;
+      border: 1px solid var(--grey);
+      padding: 10px;
+      background: linear-gradient(135deg, #111, #050505);
+      position: relative;
+      transition: all 0.4s ease;
+      /* Tactical Lime glow effect */
+      box-shadow: 0 0 20px rgba(212, 255, 0, 0.05);
+    }
+
+    .hero-image:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 30px rgba(212, 255, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    /* --- SECTIONS --- */
     section {
       padding: 100px 8%;
       max-width: 1400px;
@@ -133,18 +159,16 @@
       font-size: 0.7rem;
       color: #444;
       letter-spacing: 3px;
-      margin-right: 15px;
     }
 
     .section-title {
       font-family: var(--font-bebas);
       font-size: 3rem;
-      margin: 0 0 50px;
+      margin: 10px 0 50px;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
 
-    /* Grid for Background & Skills */
     .b-s-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -156,12 +180,6 @@
       font-size: 1.6rem;
       color: var(--mid-grey);
       margin-bottom: 20px;
-    }
-
-    .b-s-text {
-      color: #ccc;
-      line-height: 1.8;
-      font-size: 0.95rem;
     }
 
     .skills-list {
@@ -179,7 +197,7 @@
       padding: 10px;
       border: 1px solid var(--grey);
       background-color: #0a0a0a;
-      transition: border-color 0.3s, color 0.3s;
+      transition: 0.3s;
     }
 
     .skills-list li:hover {
@@ -187,7 +205,6 @@
       color: var(--accent);
     }
 
-    /* Projects Grid */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -198,60 +215,30 @@
       background-color: #0a0a0a;
       border: 1px solid var(--grey);
       padding: 25px;
-      transition: border-color 0.3s;
+      transition: 0.3s;
     }
 
-    .project-card:hover {
-      border-color: var(--accent);
-    }
+    .project-card:hover { border-color: var(--accent); }
 
-    .proj-type {
-      font-family: monospace;
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 2px;
-    }
-
-    .proj-title {
-      font-family: var(--font-bebas);
-      font-size: 1.8rem;
-      margin: 10px 0;
-    }
-
-    .proj-desc {
-      color: #ccc;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .proj-links {
-      display: flex;
-      gap: 15px;
-    }
-
-    .proj-link {
-      font-family: monospace;
-      font-size: 0.8rem;
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: color 0.3s, border-color 0.3s;
-    }
-
-    .proj-link:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
+    .proj-type { font-family: monospace; font-size: 0.7rem; color: var(--accent); }
+    .proj-title { font-family: var(--font-bebas); font-size: 1.8rem; margin: 10px 0; }
+    .proj-desc { color: #ccc; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6; }
+    .proj-link { font-family: monospace; font-size: 0.8rem; color: #fff; text-decoration: none; border-bottom: 1px solid var(--accent); }
 
     /* --- RESPONSIVE MOBILE ADJUSTMENTS --- */
-    @media (max-width: 768px) {
-      .nav-links { display: none; } /* Standard Mobile Menu Hide */
-      .nav-container { justify-content: center; } /* Center Logo */
-
-      .hero-title { font-size: 18vw; }
-      .b-s-grid { grid-template-columns: 1fr; gap: 40px; }
-      .section-title { font-size: 2.5rem; }
+    @media (max-width: 968px) {
+      .hero {
+        flex-direction: column-reverse; /* Put text below image on mobile */
+        height: auto;
+        padding-top: 120px;
+        padding-bottom: 60px;
+        text-align: center;
+      }
+      .hero-image-container { flex: none; justify-content: center; width: 100%; }
+      .hero-image { width: 280px; height: 350px; }
+      .hero-title { font-size: 15vw; }
+      .nav-links { display: none; }
+      .b-s-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -261,18 +248,25 @@
     <div class="nav-container">
       <a href="#home" class="nav-logo">MERRIC <span>EVANGELISTA</span></a>
       <ul class="nav-links">
-        <li><a href="#home"> HOME</a></li>
-        <li><a href="#background"> BACKGROUND AND SKILLS</a></li>
-        <li><a href="#projects"> PROJECTS</a></li>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#background">BACKGROUND AND SKILLS</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
       </ul>
     </div>
   </nav>
 
   <header id="home" class="hero">
-    <span class="hero-protocol">Hi there! My name is Merric and welcome to my portfolio page</span>
-    <br>
+    <div class="hero-content">
+      <span class="hero-protocol">UPLINK_ESTABLISHED // SYSTEM_OPERATOR</span>
+      <h1 class="hero-title">BEYOND THE <br><span>CODE</span></h1>
+      <p style="color: var(--mid-grey); margin-top: 20px; line-height: 1.6;">
+        Hi there! My name is Merric. Welcome to my portfolio—a tactical archival of 10+ years in IT, full-stack engineering, and RPA automation.
+      </p>
+    </div>
     
-    <h1 class="hero-title">BEYOND THE <br><span>CODE</span></h1>
+    <div class="hero-image-container">
+      <img src="https://github.com/ramdac17.png" alt="Merric Evangelista" class="hero-image">
+    </div>
   </header>
 
   <section id="background">
@@ -280,30 +274,25 @@
     <h2 class="section-title">BACKGROUND AND SKILLS</h2>
     <div class="b-s-grid">
       <div class="b-text-column">
-        <h3 class="subsection-title">TECHNICAL BACKGROUND AND KEY HIGHLIGHTS</h3>
-        <p class="hero-subtitle">
-              <li> I have over 10 years of working experience in the IT Industry and Technical Support field</li>
-              <li> Has received numerous technical trainings from previous companies both local and abroad</li>
-              <li> Result-driven and self-motivated</li>
-              <li> Enthusiastic about learning new technology</li>
-              <li> Extensive production and operations experience</li>
-              <li> Possess strong problem resolution skills</li>
-        </p>
-    <br>
+        <h3 class="subsection-title">TECHNICAL HIGHLIGHTS</h3>
+        <ul style="color: #ccc; line-height: 2; font-size: 0.95rem; padding-left: 20px;">
+          <li>10+ years experience in IT Industry & Tech Support</li>
+          <li>International technical training credentials</li>
+          <li>Result-driven and production-hardened</li>
+          <li>Specialist in complex problem resolution</li>
+        </ul>
       </div>
       <div class="skills-column">
-        <h3 class="subsection-title">CORE SKILLS</h3>
+        <h3 class="subsection-title">CORE_STACK</h3>
         <ul class="skills-list">
           <li>Next.js 15</li>
           <li>NestJS / Node.js</li>
           <li>Prisma / Postgres</li>
           <li>MongoDB</li>
           <li>React Native</li>
-          <li>RPA Automation (UiPath / Blue Prism)</li>
-          <li>Make.com Automatio</li>
-          <li>Cloudinary</li>
-          <li>Swagger API Command Center</li>
-          <li>Railway / Vercel</li>
+          <li>UiPath / Blue Prism</li>
+          <li>Make.com</li>
+          <li>Swagger UI</li>
         </ul>
       </div>
     </div>
@@ -313,44 +302,13 @@
     <span class="section-num">|| 02</span>
     <h2 class="section-title">PROJECTS</h2>
     <div class="projects-grid">
-      
       <div class="project-card">
-        <span class="proj-type"> PRX - PINOY RUNNER EXTREME ECOSYSTEM</span>
-        <h3 class="proj-title">PRX | ePRX PINOY RUNNER EXTREME</h3>
-        <p class="proj-desc">Synchronized Full-Stack solution for elite runners. Features Recharts telemetry, GDPR governance, and custom Glitch-Skew CSS interface.</p>
-        <div class="proj-links">
-          <a href="https://e-prx-uv-4-website.vercel.app/dashboard" class="proj-link">Live production link - Vercel</a>       
-        </div>
+        <span class="proj-type">PRX ECOSYSTEM</span>
+        <h3 class="proj-title">ePRX PINOY RUNNER</h3>
+        <p class="proj-desc">Synchronized Full-Stack solution for elite runners. Features Recharts telemetry and GDPR governance.</p>
+        <a href="https://e-prx-uv-4-website.vercel.app/dashboard" class="proj-link">LIVE_UPLINK</a>
       </div>
-
-      <div class="project-card">
-        <span class="proj-type"> eCommerce ECOSYSTEM</span>
-        <h3 class="proj-title">eCommerce</h3>
-        <p class="proj-desc">A simple eCommerce website and mobile application that showcase the actual online eCommerce store</p>
-        <div class="proj-links">
-          <a href="#" class="proj-link">Live production link - Coming soon</a>       
-        </div>
       </div>
-
-      <div class="project-card">
-        <span class="proj-type"> eResto Web Application</span>
-        <h3 class="proj-title">eResto</h3>
-        <p class="proj-desc">A simple eResto website application that showcase the real-world food ordering and table reservations</p>
-        <div class="proj-links">
-          <a href="#" class="proj-link">>Live production link - Coming soon<</a>       
-        </div>
-      </div>
-
-      <div class="project-card">
-        <span class="proj-type"> RPA AUTOMATION</span>
-        <h3 class="proj-title">UIPATH PROJECTS</h3>
-        <p class="proj-desc">Automated systems using UiPath for multiple services, optimizing data integrity and synchronization.</p>
-        <div class="proj-links">
-          <a href="#" class="proj-link">[Schematic]</a>
-        </div>
-      </div>
-
-    </div>
   </section>
 
 </body>
