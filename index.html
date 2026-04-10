@@ -85,7 +85,7 @@
     .hero {
       height: 100vh;
       display: flex;
-      flex-direction: row; /* Two columns side-by-side */
+      flex-direction: row; 
       align-items: center;
       justify-content: space-between;
       padding: 0 8%;
@@ -120,7 +120,6 @@
 
     .hero-title span { color: var(--accent); }
 
-    /* Profile Image Container */
     .hero-image-container {
       flex: 0 0 400px;
       display: flex;
@@ -136,7 +135,6 @@
       background: linear-gradient(135deg, #111, #050505);
       position: relative;
       transition: all 0.4s ease;
-      /* Tactical Lime glow effect */
       box-shadow: 0 0 20px rgba(212, 255, 0, 0.05);
     }
 
@@ -205,40 +203,62 @@
       color: var(--accent);
     }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
+    /* --- PROJECTS GRID UPDATED --- */
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
     }
 
     .project-card {
       background-color: #0a0a0a;
       border: 1px solid var(--grey);
-      padding: 25px;
+      padding: 40px;
       transition: 0.3s;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
     }
 
     .project-card:hover { border-color: var(--accent); }
 
     .proj-type { font-family: monospace; font-size: 0.7rem; color: var(--accent); }
-    .proj-title { font-family: var(--font-bebas); font-size: 1.8rem; margin: 10px 0; }
+    .proj-title { font-family: var(--font-bebas); font-size: 2.5rem; margin: 10px 0; line-height: 1; }
     .proj-desc { color: #ccc; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6; }
     .proj-link { font-family: monospace; font-size: 0.8rem; color: #fff; text-decoration: none; border-bottom: 1px solid var(--accent); }
 
-    /* --- RESPONSIVE MOBILE ADJUSTMENTS --- */
+    .project-thumbnail {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: var(--grey);
+      border: 1px solid var(--grey);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: all 0.5s ease;
+      display: block;
+    }
+
+    .project-card:hover .project-thumbnail img {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+
     @media (max-width: 968px) {
-      .hero {
-        flex-direction: column-reverse; /* Put text below image on mobile */
-        height: auto;
-        padding-top: 120px;
-        padding-bottom: 60px;
-        text-align: center;
-      }
+      .hero { flex-direction: column-reverse; height: auto; padding-top: 120px; padding-bottom: 60px; text-align: center; }
       .hero-image-container { flex: none; justify-content: center; width: 100%; }
       .hero-image { width: 280px; height: 350px; }
       .hero-title { font-size: 15vw; }
       .nav-links { display: none; }
-      .b-s-grid { grid-template-columns: 1fr; }
+      .b-s-grid, .project-card { grid-template-columns: 1fr; }
+      .project-card { padding: 25px; }
     }
   </style>
 </head>
@@ -246,7 +266,7 @@
 
   <nav class="navbar">
     <div class="nav-container">
-      <a href="#home" class="nav-logo">MERRIC <span>EVANGELISTA</span></a>
+      <a href="#home" class="nav-logo">MERRIC R. <span>EVANGELISTA</span></a>
       <ul class="nav-links">
         <li><a href="#home">HOME</a></li>
         <li><a href="#background">BACKGROUND AND SKILLS</a></li>
@@ -287,27 +307,27 @@
     <div class="b-s-grid">
       <div class="b-text-column">
         <h3 class="subsection-title">TECHNICAL HIGHLIGHTS</h3>
-        <ul style="color: #ccc; line-height: 2; font-size: 0.95rem; padding-left: 20px;">
+        <div style="color: #ccc; line-height: 1.8; font-size: 0.95rem;">
           <p>
-            With over 15 years of experience in the IT industry, I have evolved alongside the digital landscape—transitioning from building robust core systems to engineering the next generation of intelligent automation. My career is defined by a dual mastery of Full-Stack Engineering and Robotic Process Automation (RPA), allowing me to deliver solutions that are not only high-performing but also operationally efficient.
+            With over 15 years of experience in the IT industry, I have evolved alongside the digital landscape—transitioning from building robust core systems to engineering the next generation of intelligent automation. My career is defined by a dual mastery of Full-Stack Engineering and Robotic Process Automation (RPA).
           </p>
           <p>
-            As a Full-Stack Developer, I specialize in the React and Node.js ecosystems, creating scalable web and mobile applications that prioritize seamless user experiences and data integrity. My expertise extends into complex backend architectures, utilizing NestJS and PostgreSQL to build the backbone of modern digital platforms.
+            As a Full-Stack Developer, I specialize in the React and Node.js ecosystems, creating scalable web and mobile applications that prioritize seamless user experiences and data integrity.
           </p>
           <p>
-            arallel to my development background, I am a seasoned RPA Architect. I leverage industry-leading tools like UiPath and Blue Prism, alongside agile integration platforms like Make.com, to eliminate operational bottlenecks. By synthesizing custom-coded solutions with automated workflows, I help organizations transform manual, error-prone tasks into streamlined, autonomous processes.
+            Parallel to my development background, I am a seasoned RPA Architect. I leverage tools like UiPath and Blue Prism to eliminate operational bottlenecks, transforming manual tasks into autonomous processes.
           </p>
-        </ul>
+        </div>
       </div>
       <div class="skills-column">
         <h3 class="subsection-title">CORE SKILLS</h3>
         <ul class="skills-list">
           <li>Next.js 15 for Frontend</li>
-          <li>NestJS / Node.js for Bakcend</li>
-          <li>Prisma / Postgres / MongoDB for Data Storage</li>
-          <li>React Native for Mobile application development</li>
-          <li>UiPath / Blue Prism / Make.com for Automation</li>
-          <li>Swagger UI for API Command Center</li>
+          <li>NestJS / Node.js for Backend</li>
+          <li>Prisma / Postgres / MongoDB</li>
+          <li>React Native Mobile</li>
+          <li>UiPath / Blue Prism / Make.com</li>
+          <li>Swagger UI API Design</li>
         </ul>
       </div>
     </div>
@@ -315,159 +335,60 @@
 
  <section id="projects">
     <span class="section-num">|| 02</span>
-    <h2 class="section-title">PROJECTS</h2>
+    <h2 class="section-title">SELECTED PROJECTS</h2>
     
-    <div class="projects-grid">
-      <div class="project-card" style="grid-column: 1 / -1;"> <span class="proj-type">PRX FULL-STACK ECOSYSTEM</span>
-        <h3 class="proj-title">PRX / ePRX PINOY RUNNER EXTREME WEB AND MOBILE APPLICATIONS</h3>
-        <p class="proj-desc" style="max-width: 800px; border-left: 2px solid var(--accent); padding-left: 15px; margin-bottom: 30px;">
-          A Synchronized Full-Stack Ecosystem engineered for active individuals pursuing high-performance lifestyles and adventure. Unifying web, mobile, and server-side operations.
-        </p>
-
-        <div class="b-s-grid" style="gap: 30px;">
-          <div class="tech-spec">
-            <h3 class="subsection-title" style="font-size: 1.2rem; color: var(--accent);">TECHNICAL ARCHITECTURE</h3>
-            <ul class="skills-list" style="grid-template-columns: 1fr; border: none; background: transparent;">
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
-                <strong>CORE ENGINE:</strong> Unified Next.js 15 & NestJS/Node.js for low-latency optimization.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
-                <strong>MOBILE UPLINK:</strong> React Native field operations for real-time telemetry.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
-                <strong>DATA PERSISTENCE:</strong> PostgreSQL & Prisma ORM deployed via Railway infrastructure.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
-                <strong>INTERFACE:</strong> Cyber-Minimalist theme with high-contrast visual telemetry.
-              </li>
-            </ul>
-          </div>
-
-          <div class="ops-spec">
-            <h3 class="subsection-title" style="font-size: 1.2rem; color: var(--accent);">OPERATIONAL PROTOCOL</h3>
-            <ul class="skills-list" style="grid-template-columns: 1fr; border: none; background: transparent;">
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
-                <strong>SECURITY:</strong> Hardened GDPR compliance & JWT-based session management.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
-                <strong>COMMS:</strong> Automated Brevo/Formspree integration for secure data ingestion.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
-                <strong>SOCIAL:</strong> Integrated social media sharing for articles and milestones.
-              </li>
-            </ul>
+    <div class="projects-container">
+      
+      <div class="project-card">
+        <div class="proj-info">
+          <span class="proj-type">PRX FULL-STACK ECOSYSTEM</span>
+          <h3 class="proj-title">PRX / ePRX PINOY RUNNER EXTREME</h3>
+          <p class="proj-desc">
+            A Synchronized Full-Stack Ecosystem engineered for active individuals pursuing high-performance lifestyles. Unifying web, mobile, and server-side operations.
+          </p>
+          <div style="margin-top: 20px;">
+            <a href="https://e-prx-uv-4-website.vercel.app/dashboard" target="_blank" class="proj-link"> > LIVE UPLINK</a>
           </div>
         </div>
-
-        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--grey);">
-          <a href="https://e-prx-uv-4-website.vercel.app/dashboard" target="_blank" class="proj-link" style="font-size: 1rem; letter-spacing: 2px;">
-            > LIVE UPLINK
-          </a>
+        <div class="project-thumbnail">
+          <img src="https://raw.githubusercontent.com/ramdac17/teamPortfolio/main/assets/WebniXV1.jpg" alt="PRX Dashboard">
         </div>
       </div>
-    </div>
 
-   <div class="projects-grid">
-      <div class="project-card" style="grid-column: 1 / -1;"> <span class="proj-type">eCommerce Full-Stack ECOSYSTEM</span>
-        <h3 class="proj-title">eCommerce WEB AND MOBILE APPLICATIONS</h3>
-        <p class="proj-desc" style="max-width: 800px; border-left: 2px solid var(--accent); padding-left: 15px; margin-bottom: 30px;">
-          A Synchronized Full-Stack Ecosystem engineered to showcase the real-world eCommerce application for web and mobile application.
-        </p>
-
-        <div class="b-s-grid" style="gap: 30px;">
-          <div class="tech-spec">
-            <h3 class="subsection-title" style="font-size: 1.2rem; color: var(--accent);">TECHNICAL ARCHITECTURE</h3>
-            <ul class="skills-list" style="grid-template-columns: 1fr; border: none; background: transparent;">
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
-                <strong>CORE ENGINE:</strong> Using ReactJS.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
-                <strong>MOBILE UPLINK:</strong> React Native field operations for real-time telemetry.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
-                <strong>DATA PERSISTENCE:</strong> Integration of MongoDB for data storage.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
-                <strong>INTERFACE:</strong> Simple and clean visual telemetry.
-              </li>
-            </ul>
-          </div>
-
-          <div class="ops-spec">
-            <h3 class="subsection-title" style="font-size: 1.2rem; color: var(--accent);">OPERATIONAL PROTOCOL</h3>
-            <ul class="skills-list" style="grid-template-columns: 1fr; border: none; background: transparent;">
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
-                <strong>SECURITY:</strong> Hardened GDPR compliance & JWT-based session management.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
-                <strong>COMMS:</strong> Automated NodeMailer integration for secure data ingestion.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
-                <strong>SOCIAL:</strong> User review, checkout and payment.
-              </li>
-            </ul>
+      <div class="project-card">
+        <div class="proj-info">
+          <span class="proj-type">COMMERCE INFRASTRUCTURE</span>
+          <h3 class="proj-title">eCOMMERCE WEB & MOBILE</h3>
+          <p class="proj-desc">
+            Full-stack marketplace solution featuring real-time inventory tracking, secure checkout flows, and cross-platform mobile synchronization.
+          </p>
+          <div style="margin-top: 20px;">
+            <a href="#" class="proj-link"> > VIEWABLE SOON</a>
           </div>
         </div>
-
-        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--grey);">
-          <a href="" target="_blank" class="proj-link" style="font-size: 1rem; letter-spacing: 2px;">
-            > VIEWABLE SOON
-          </a>
+        <div class="project-thumbnail">
+          <img src="https://raw.githubusercontent.com/ramdac17/teamPortfolio/main/assets/WebniXV1.jpg" alt="eCommerce Platform">
         </div>
       </div>
-    </div>
 
-   <div class="projects-grid">
-      <div class="project-card" style="grid-column: 1 / -1;"> <span class="proj-type">eResto Full-Stack Web Application</span>
-        <h3 class="proj-title">eResto WEB APPLICATION</h3>
-        <p class="proj-desc" style="max-width: 800px; border-left: 2px solid var(--accent); padding-left: 15px; margin-bottom: 30px;">
-          A Synchronized Full-Stack system engineered to showcase the real-world food ordering, reservation, check out and payment application for web application.
-        </p>
-
-        <div class="b-s-grid" style="gap: 30px;">
-          <div class="tech-spec">
-            <h3 class="subsection-title" style="font-size: 1.2rem; color: var(--accent);">TECHNICAL ARCHITECTURE</h3>
-            <ul class="skills-list" style="grid-template-columns: 1fr; border: none; background: transparent;">
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
-                <strong>CORE ENGINE:</strong> Using ReactJS.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
-                <strong>DATA PERSISTENCE:</strong> Integration of MongoDB for data storage.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--accent);">
-                <strong>INTERFACE:</strong> Simple and clean visual telemetry using tomato theme.
-              </li>
-            </ul>
-          </div>
-
-          <div class="ops-spec">
-            <h3 class="subsection-title" style="font-size: 1.2rem; color: var(--accent);">OPERATIONAL PROTOCOL</h3>
-            <ul class="skills-list" style="grid-template-columns: 1fr; border: none; background: transparent;">
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
-                <strong>SECURITY:</strong> Hardened GDPR compliance & JWT-based session management.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
-                <strong>COMMS:</strong> Automated NodeMailer integration for secure data ingestion.
-              </li>
-              <li style="background: rgba(20,20,20,0.5); border-left: 1px solid var(--mid-grey);">
-                <strong>SOCIAL:</strong>Reservation, checkout and payment.
-              </li>
-            </ul>
+      <div class="project-card">
+        <div class="proj-info">
+          <span class="proj-type">HOSPITALITY SYSTEM</span>
+          <h3 class="proj-title">eRESTO FOOD MANAGEMENT</h3>
+          <p class="proj-desc">
+            Streamlined food ordering and table reservation system with integrated payment gateways and real-time kitchen status telemetry.
+          </p>
+          <div style="margin-top: 20px;">
+            <a href="https://e-resto-web-app.vercel.app/" target="_blank" class="proj-link"> > LIVE UPLINK</a>
           </div>
         </div>
-
-        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--grey);">
-          <a href="https://e-resto-web-app.vercel.app/" target="_blank" class="proj-link" style="font-size: 1rem; letter-spacing: 2px;">
-            > LIVE UPLINK
-          </a>
+        <div class="project-thumbnail">
+          <img src="https://raw.githubusercontent.com/ramdac17/teamPortfolio/main/assets/WebniXV1.jpg" alt="eResto System">
         </div>
       </div>
-    </div>
 
-   
+    </div>
   </section>
-
-  
 
 </body>
 </html>
